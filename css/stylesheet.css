@@ -1,40 +1,52 @@
 body {
-	margin: 0px 10px 0px 10px;
-	padding: 0;
-	background-image: url(../pictures/wood.png);
-
+  margin: 0px 10px 0px 10px;
+  padding: 0;
+  background-image: url(../pictures/wood.png);
+  height: 100vh;
 }
 
 .head {
-	color: #ffffff;
-	text-align: center;
-	padding: 10px;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px;
 }
 
 .gameGrid {
-	width: 100%;
-	height: 100%;
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	column-gap: 10px;
-	row-gap: 10px;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
 .card {
-	padding: 10px;
-	border: 1px solid black;
-	border-radius: 10px;
-	display: flex;
-
-	flex-wrap: wrap;
-	align-items: center;
-	background-color: white;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #c6c7ca;
+  flex-direction: column;
+  text-align: center;
 }
 
-
 .reverse {
-	display: inline-block;
-	transform: scale(-1, -1);
-	width: 100%;
-	border-top: 1px solid black;
+  display: inline-block;
+  transform: scale(-1, -1);
+  width: 100%;
+}
+
+.topRow {
+  border-bottom: 1px solid black;
+  display: flex;
+}
+
+.icon {
+  color: rgba(0, 0, 0, 0.356);
+  background-color: rgba(0, 0, 0, 0.116);
+  border: 2px solid white;
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 30px;
 }
