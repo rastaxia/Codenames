@@ -212,6 +212,7 @@ gameArea.forEach(div => {
     //blue start
     else if (initialTurn == 2) {
       if (turn == 1 && this.id == "red") {
+        alert("correct");
         this.style.display = "none";
         scoreRed++;
         redScore.innerHTML= scoreRed;
@@ -228,6 +229,7 @@ gameArea.forEach(div => {
         blueTeam.style.color = "blue";
       } 
       else if (turn == 2 && this.id == "blue") {
+        alert("Correct");
         this.style.display = "none";
         scoreBlue++;
         blueScore.innerHTML= scoreBlue;
