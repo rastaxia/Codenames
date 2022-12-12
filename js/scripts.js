@@ -18,8 +18,6 @@ const spyGrid = document.getElementById("spyMaster");
 const end = document.getElementById("end");
 //gets all the cards
 const cards = document.getElementsByClassName("card");
-//empty string for the game setup
-let gameSetup = [];
 // index for every div
 let index = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
@@ -27,20 +25,26 @@ let index = [
 ];
 
 spyGrid.addEventListener("click", function () {
+  let indexList = index;
+  var number = 0;
+
   for (let i = 0; i < 9; i++) {
-    let indexList = index;
     const random = Math.floor(Math.random() * indexList.length);
     console.log(random);
-    if (indexList.includes(random)) {
-      indexList.splice(random, 1);
-      cards[indexList[i]].style.backgroundColor = "red";
-    } else {
-      indexList.splice(random, 1);
-      cards[indexList[i]].style.backgroundColor = "red";
-    }
-
-    // gameSetup.push(indexList);
-    // console.log(gameSetup);
+    number = indexList[random];
+    console.log(indexList);
+    indexList.splice(random, 1);
+    console.log("test " + number);
+    cards[number].style.backgroundColor = "red";
+  }
+  for (let i = 0; i < 8; i++) {
+    const random = Math.floor(Math.random() * indexList.length);
+    console.log(random);
+    number = indexList[random];
+    console.log(indexList);
+    indexList.splice(random, 1);
+    console.log("test " + number);
+    cards[number].style.backgroundColor = "blue";
   }
 });
 // spyMaster();
