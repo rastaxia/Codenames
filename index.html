@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/stylesheet.css" />
+    <!-- for icons -->
     <script
       src="https://kit.fontawesome.com/52863253ca.js"
       crossorigin="anonymous"
@@ -12,7 +13,9 @@
     <title>Codenames</title>
   </head>
   <body>
+    <!-- header -->
     <header class="head">
+      <!-- top row of the game -->
       <div class="nav">
         <div>
           <button id="info" class="gameInfo">
@@ -21,12 +24,15 @@
         </div>
         <h1 class="title">Codenames the fun game (Master version)</h1>
       </div>
+      <!-- score board -->
       <div class="scores">
         <span> Red score: <span id="redScore">0</span> </span>
         |
         <span> Blue score <span id="blueScore">0</span></span>
       </div>
+      <!-- start button -->
       <button id="start">Start game</button>
+      <!-- game useability -->
       <div id="buttons" class="hidden">
         <span id="turnRed">Turn: Team Red</span>
         <span id="turnBlue">Turn: Team Blue</span>
@@ -36,14 +42,19 @@
         </div>
       </div>
     </header>
+    <!-- playing field -->
     <main class="gameGrid">
+      <!-- game card -->
       <div class="card">
+        <!-- top row is for the icon and the upside down word -->
         <div class="topRow">
           <span class="reverse"> ORGAN </span>
           <i class="icon fa-solid fa-user-secret"></i>
         </div>
+        <!-- bottom row is for the word -->
         <span> ORGAN </span>
       </div>
+      <!-- check above for the card structure -->
       <div class="card">
         <div class="topRow">
           <span class="reverse"> LAB </span>
@@ -214,6 +225,7 @@
       </div>
     </main>
 
+    <!-- overlay -->
     <div id="overlay">
       <div id="rules">
         <h2>Rules</h2>
@@ -272,7 +284,7 @@
         the other team wins regardless of points
       </div>
     </div>
-
+    <!-- game script -->
     <script src="./js/scripts.js"></script>
   </body>
 </html>
