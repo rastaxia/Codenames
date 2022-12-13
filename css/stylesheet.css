@@ -60,3 +60,9 @@ body {
   margin-left: 10px;
   font-size: 30px;
 }
+
+@media screen and (max-width: 900px) {
+  .gameGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}

@@ -1,9 +1,9 @@
 //gets every div with the .card class
 const gameArea = document.querySelectorAll(".card");
 //Sets the initial turn to 0 for random team starter
-var initialTurn = 0;
+var initialTurn = Math.floor(Math.random() * 2) + 1;
 //turn one is red, turn two is blue always starts at 0
-var turn = 0;
+var turn = initialTurn;
 //gets the buttons div
 const gameButtons = document.getElementById("buttons");
 //gets the turn button
@@ -25,80 +25,82 @@ let index = [
 ];
 //gets the clicked button
 var clicked = 0;
-
-//random number generator for who starts
-initialTurn = Math.floor(Math.random() * 2) + 1;
-
 //spy master button
 spyMaster.addEventListener("click", function () {
-clicked++;
-let indexList = index;
-var number = 0;
-switch (clicked) {
-  case 1:
-    spyMaster.innerHTML = "Hide cards";
-    if (initialTurn == 1) {
-      for (let i = 0; i < 9; i++) {
-        const random = Math.floor(Math.random() * indexList.length);
-        number = indexList[random];
-        indexList.splice(random, 1);
-        cards[number].style.backgroundColor = "red";
-        cards[number].setAttribute("id", "red");
-        
+  clicked++;
+  let indexList = index;
+  var number = 0;
+  switch (clicked) {
+    case 1:
+      spyMaster.innerHTML = "Hide cards";
+      if (initialTurn == 1) {
+        for (let i = 0; i < 9; i++) {
+          const random = Math.floor(Math.random() * indexList.length);
+          number = indexList[random];
+          indexList.splice(random, 1);
+          cards[number].style.backgroundColor = "red";
+          cards[number].setAttribute("id", "red");
+        }
+        for (let i = 0; i < 8; i++) {
+          const random = Math.floor(Math.random() * indexList.length);
+          number = indexList[random];
+          indexList.splice(random, 1);
+          cards[number].style.backgroundColor = "blue";
+          cards[number].setAttribute("id", "blue");
+        }
+        for (let i = 0; i < 7; i++) {
+          const random = Math.floor(Math.random() * indexList.length);
+          number = indexList[random];
+          indexList.splice(random, 1);
+          cards[number].setAttribute("id", "neutral ");
+          cards[number].style.backgroundColor = "white";
+        }
+      } else {
+        for (let i = 0; i < 9; i++) {
+          const random = Math.floor(Math.random() * indexList.length);
+          number = indexList[random];
+          indexList.splice(random, 1);
+          cards[number].style.backgroundColor = "blue";
+          cards[number].setAttribute("id", "blue");
+        }
+        for (let i = 0; i < 8; i++) {
+          const random = Math.floor(Math.random() * indexList.length);
+          number = indexList[random];
+          indexList.splice(random, 1);
+          cards[number].style.backgroundColor = "red";
+          cards[number].setAttribute("id", "red");
+        }
+        for (let i = 0; i < 7; i++) {
+          const random = Math.floor(Math.random() * indexList.length);
+          number = indexList[random];
+          indexList.splice(random, 1);
+          cards[number].setAttribute("id", "neutral ");
+          cards[number].style.backgroundColor = "white";
+        }
       }
-      for (let i = 0; i < 8; i++) {
-        const random = Math.floor(Math.random() * indexList.length);
-        number = indexList[random];
-        indexList.splice(random, 1);
-        cards[number].style.backgroundColor = "blue"; 
-        cards[number].setAttribute("id", "blue");
-      }
-      
-    } else {
-      for (let i = 0; i < 9; i++) {
-        const random = Math.floor(Math.random() * indexList.length);
-        number = indexList[random];
-        indexList.splice(random, 1);
-        cards[number].style.backgroundColor = "blue";
-        cards[number].setAttribute("id", "blue");
-      }
-      for (let i = 0; i < 8; i++) {
-        const random = Math.floor(Math.random() * indexList.length);
-        number = indexList[random];
-        indexList.splice(random, 1);
-        cards[number].style.backgroundColor = "red";
-        cards[number].setAttribute("id", "red");
-      }
-      
-    }
-    const random = Math.floor(Math.random() * indexList.length);
+      const random = Math.floor(Math.random() * indexList.length);
       number = indexList[random];
       indexList.splice(random, 1);
       cards[number].style.backgroundColor = "black";
       cards[number].setAttribute("id", "black");
 
-      for (let i = 0; i < 7 ; i++) {
-        const random = Math.floor(Math.random() * indexList.length);
-        number = indexList[random];
-        indexList.splice(random, 1);
-        cards[number].setAttribute("id", "neutral ");
-       };
-    
-    break;
+      break;
 
-  case 2:
-    spyMaster.innerHTML = "Show cards Cards";
-    for (let i = 0; i < 25; i++) {
-      cards[i].style.backgroundColor = "#fec597";
-    }
-    clicked = 2;
-  break;
+    case 2:
+      spyMaster.innerHTML = "Show cards Cards";
+      for (let i = 0; i < 25; i++) {
+        cards[i].style.backgroundColor = "#fec597";
+      }
+      clicked = 2;
+      break;
 
     case 3:
       spyMaster.innerHTML = "Hide cards";
-      const  redCards = document.querySelectorAll("#red");
-      const  blueCards = document.querySelectorAll("#blue");
-      const  blackCards = document.querySelectorAll("#black");
+      const redCards = document.querySelectorAll("#red");
+      const blueCards = document.querySelectorAll("#blue");
+      const blackCards = document.querySelectorAll("#black");
+      const neutralCards = document.querySelectorAll("#neutral");
+      console.log(neutralCards);
       redCards.forEach((div) => {
         div.style.backgroundColor = "red";
       });
@@ -108,20 +110,21 @@ switch (clicked) {
       blackCards.forEach((div) => {
         div.style.backgroundColor = "black";
       });
+      neutralCards.forEach((div) => {
+        div.style.backgroundColor = "white";
+      });
       clicked = 1;
-    break;
-}
+      break;
+  }
 });
 
-
-turn = initialTurn;
-
+// Everything to do with the scores
 var scoreRed = 0;
 var scoreBlue = 0;
-
 const redScore = document.getElementById("redScore");
 const blueScore = document.getElementById("blueScore");
-//random number generator for who starts
+
+//start function for the game
 start.addEventListener("click", function () {
   start.style.display = "none";
   gameButtons.style.display = "block";
@@ -135,68 +138,63 @@ start.addEventListener("click", function () {
     blueTeam.style.display = "block";
     blueTeam.style.color = "blue";
   }
-
 });
 
-gameArea.forEach(div => {
-
+gameArea.forEach((div) => {
   div.addEventListener("click", function () {
-    //red start
-    if (initialTurn == 1) { 
+    //////////////////////
+    //
+    //red start//
+    //
+    //////////////////////
+    if (initialTurn == 1) {
       if (turn == 1 && this.id == "red") {
         alert("Correct");
         this.style.display = "none";
         scoreRed++;
-        redScore.innerHTML= scoreRed;
-      }
-       else if (turn == 1 && this.id == "blue") {
+        redScore.innerHTML = scoreRed;
+      } else if (turn == 1 && this.id == "blue") {
         alert("Wrong team");
         scoreBlue++;
         this.style.display = "none";
-        blueScore.innerHTML= scoreBlue;
+        blueScore.innerHTML = scoreBlue;
         turn = 2;
         console.log(turn);
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
         blueTeam.style.color = "blue";
-      } 
-      else if (turn == 1 && this.id == "neutral") {
+      } else if (turn == 1 && this.id == "neutral") {
         alert("wrong");
         this.style.display = "none";
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
         blueTeam.style.color = "blue";
-      }
-      else if (turn == 2 && this.id == "blue") {
+      } else if (turn == 2 && this.id == "blue") {
         alert("Correct");
         this.style.display = "none";
         scoreBlue++;
-        blueScore.innerHTML= scoreBlue;
-      } 
-      else if (turn == 2 && this.id == "red") {
+        blueScore.innerHTML = scoreBlue;
+      } else if (turn == 2 && this.id == "red") {
         alert("Wrong team");
         this.style.display = "none";
         scoreRed++;
-        redScore.innerHTML= scoreRed;
+        redScore.innerHTML = scoreRed;
         turn = 1;
         console.log(turn);
         redTeam.style.display = "block";
         blueTeam.style.display = "none";
         redTeam.style.color = "red";
-      }
-      else if (turn == 2 && this.id == "neutral") {
+      } else if (turn == 2 && this.id == "neutral") {
         alert("Wrong");
         this.style.display = "none";
         redTeam.style.display = "block";
         blueTeam.style.display = "none";
         redTeam.style.color = "red";
-      } 
-      else if (this.id == "black" && turn == 1) {
+      } else if (this.id == "black" && turn == 1) {
         alert("Game over");
         alert("Blue wins");
         document.location.reload(true);
-      }
-      else if (this.id == "black" && turn == 2) {
+      } else if (this.id == "black" && turn == 2) {
         alert("Game over");
         alert("Red wins");
         document.location.reload(true);
@@ -209,48 +207,47 @@ gameArea.forEach(div => {
         location.reload();
       }
     }
-    //blue start
+    /////////////////
+    //
+    //blue start//
+    //
+    /////////////////
     else if (initialTurn == 2) {
       if (turn == 1 && this.id == "red") {
         alert("correct");
         this.style.display = "none";
         scoreRed++;
-        redScore.innerHTML= scoreRed;
-      } 
-      else if (turn == 1 && this.id == "blue") {
+        redScore.innerHTML = scoreRed;
+      } else if (turn == 1 && this.id == "blue") {
         alert("Wrong team");
         scoreBlue++;
         this.style.display = "none";
-        blueScore.innerHTML= scoreBlue;
+        blueScore.innerHTML = scoreBlue;
         turn = 2;
         console.log(turn);
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
         blueTeam.style.color = "blue";
-      } 
-      else if (turn == 2 && this.id == "blue") {
+      } else if (turn == 2 && this.id == "blue") {
         alert("Correct");
         this.style.display = "none";
         scoreBlue++;
-        blueScore.innerHTML= scoreBlue;
-      } 
-      else if (turn == 2 && this.id == "red") {
+        blueScore.innerHTML = scoreBlue;
+      } else if (turn == 2 && this.id == "red") {
         alert("Wrong team");
         this.style.display = "none";
         scoreRed++;
-        redScore.innerHTML= scoreRed;
+        redScore.innerHTML = scoreRed;
         turn = 1;
         console.log(turn);
         redTeam.style.display = "block";
         blueTeam.style.display = "none";
         redTeam.style.color = "red";
-      } 
-      else if (this.id == "black" && turn == 1) {
+      } else if (this.id == "black" && turn == 1) {
         alert("Game over");
         alert("Blue wins");
         document.location.reload(true);
-      }
-      else if (this.id == "black" && turn == 2) {
+      } else if (this.id == "black" && turn == 2) {
         alert("Game over");
         alert("Red wins");
         document.location.reload(true);
@@ -262,34 +259,32 @@ gameArea.forEach(div => {
         alert("Red team wins");
         location.reload();
       }
-    }    
-});
+    }
+  });
 });
 
-
-function test(){
+function test() {
   if (turn == 1 && this.id == "red") {
     this.style.display = "none";
     scoreRed++;
-    redScore.innerHTML= scoreRed;
+    redScore.innerHTML = scoreRed;
   } else if (turn == 1 && this.id == "blue") {
     scoreBlue++;
     this.style.display = "none";
-    blueScore.innerHTML= scoreBlue;
+    blueScore.innerHTML = scoreBlue;
     turn = 2;
     console.log(turn);
     redTeam.style.display = "none";
     blueTeam.style.display = "block";
     blueTeam.style.color = "blue";
-  } 
-  else if (turn == 2 && this.id == "blue") {
+  } else if (turn == 2 && this.id == "blue") {
     this.style.display = "none";
     scoreBlue++;
-    blueScore.innerHTML= scoreBlue;
+    blueScore.innerHTML = scoreBlue;
   } else if (turn == 2 && this.id == "red") {
     this.style.display = "none";
     scoreRed++;
-    redScore.innerHTML= scoreRed;
+    redScore.innerHTML = scoreRed;
     turn = 1;
     console.log(turn);
     redTeam.style.display = "block";
@@ -299,15 +294,12 @@ function test(){
     alert("Game over");
     alert("Blue wins");
     document.location.reload(true);
-  }
-  else if (this.id == "black" && turn == 2) {
+  } else if (this.id == "black" && turn == 2) {
     alert("Game over");
     alert("Red wins");
     document.location.reload(true);
   }
-  
 }
-
 
 // end turn function
 end.addEventListener("click", function () {
@@ -316,8 +308,7 @@ end.addEventListener("click", function () {
     redTeam.style.display = "none";
     blueTeam.style.display = "block";
     blueTeam.style.color = "blue";
-  }
-  else if (turn == 2) {
+  } else if (turn == 2) {
     turn = 1;
     redTeam.style.display = "block";
     blueTeam.style.display = "none";
