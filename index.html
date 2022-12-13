@@ -13,7 +13,14 @@
   </head>
   <body>
     <header class="head">
-      <h1>Codenames the fun game (Master version)</h1>
+      <div class="nav">
+        <div>
+          <button id="info" class="gameInfo">
+            <i class="fa-solid fa-question"></i>
+          </button>
+        </div>
+        <h1 class="title">Codenames the fun game (Master version)</h1>
+      </div>
       <div class="scores">
         <span> Red score: <span id="redScore">0</span> </span>
         |
@@ -206,7 +213,66 @@
         <span> BERMUDA </span>
       </div>
     </main>
-    <div></div>
+
+    <div id="overlay">
+      <div id="rules">
+        <h2>Rules</h2>
+        (click anywhere to close)
+        <h3>Information</h3>
+        Codenames is a game for two teams. There is a grid of 25 words. Some of
+        them are secretly assigned to the
+        <span class="infoRed"> Red Team </span>, some to the
+        <span class="infoBlue"> Blue Team </span>.
+
+        <br />
+        One player from each team is the
+        <span class="infoMaster"> Spymaster </span>, and only Spymasters see
+        which words belong to which team.
+        <br />
+        Spymasters take turns giving clues to their teammates (Operatives),
+        trying to lead them to guessing their team's words. The team that
+        guesses all their words first wins the game.
+        <br />
+        <h3>Dividing the cards</h3>
+        Is your team going first? You will get 9 cards the opposing team will
+        get 8 cards. The rest of the card will be neutral and there will be 1
+        black card.
+        <h3>Card meanings</h3>
+        <ul>
+          <li>Red: red team guess this if your on team red for 1 point</li>
+          <li>Blue: blue team guess this if your on team blue for 1 point</li>
+          <li>
+            Black: Assassin don't ever guess this the other team will win
+            instantly
+          </li>
+          <li>
+            Neutral: Neutral don't guess this you won't get a point and your
+            turn ends
+          </li>
+        </ul>
+        <h3>Giving clues</h3>
+        Spymasters gives clues. When it is your turn to give a clue, say one
+        word and a number this number is associated with the number of cards
+        that belong to your current hint. Example hint: Metal, 2. Cards
+        associated: horseshoe and iron After your spymaster has given the hint,
+        he cannot speak anymore (try not to look at the spymaster since they
+        sometimes will give facial clues)
+        <h3>Guessing.</h3>
+        (you can see the explanation of the cards again here)
+        <br />
+        If you think you know what card your spymaster is giving you a hint to
+        click it. BUT BE CAREFUL there is no confirm option so once you click
+        it, it will be locked in. If you guessed correctly good job you get 1
+        point you can either continue guessing or end your turn, has the
+        spymaster given a hint with 2 cards? Try to find it when you are unsure
+        it is always smart to skip your turn. If you guess a word of the
+        opposing team your turn will end, and they will get a point (they will
+        thank you of course). Select a neutral color? No team gets a point, and
+        your turn will end. Picked the black card? Welp that is it the game over
+        the other team wins regardless of points
+      </div>
+    </div>
+
     <script src="./js/scripts.js"></script>
   </body>
 </html>

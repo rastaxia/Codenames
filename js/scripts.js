@@ -25,6 +25,19 @@ let index = [
 ];
 //gets the clicked button
 var clicked = 0;
+//info button
+const info = document.getElementById("info");
+
+info.addEventListener("click", function () {
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "block";
+  overlay.style.cursor = "pointer";
+  overlay.addEventListener("click", function () {
+    overlay.style.display = "none";
+  });
+  
+});
+
 
 ///////
 //
