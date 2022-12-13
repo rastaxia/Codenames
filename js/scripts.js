@@ -170,7 +170,6 @@ gameArea.forEach((div) => {
         this.style.display = "none";
         blueScore.innerHTML = scoreBlue;
         turn = 2;
-
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
         blueTeam.style.color = "blue";
@@ -180,12 +179,14 @@ gameArea.forEach((div) => {
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
         blueTeam.style.color = "blue";
+        turn = 2;
       } else if (turn == 2 && this.classList.contains("neutral")) {
         alert("Wrong");
         this.style.display = "none";
         redTeam.style.display = "block";
         blueTeam.style.display = "none";
         redTeam.style.color = "red";
+        turn = 1;
       } else if (turn == 2 && this.classList.contains("blue")) {
         alert("Correct");
         this.style.display = "none";
@@ -197,7 +198,6 @@ gameArea.forEach((div) => {
         scoreRed++;
         redScore.innerHTML = scoreRed;
         turn = 1;
-
         redTeam.style.display = "block";
         blueTeam.style.display = "none";
         redTeam.style.color = "red";
@@ -250,12 +250,14 @@ gameArea.forEach((div) => {
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
         blueTeam.style.color = "blue";
+        turn = 2;
       } else if (turn == 2 && this.classList.contains("neutral")) {
         alert("neutral color killed");
         this.style.display = "none";
         blueTeam.style.display = "none";
         redTeam.style.display = "block";
         redTeam.style.color = "red";
+        turn = 1;
       } else if (turn == 2 && this.classList.contains("red")) {
         alert("Wrong team");
         this.style.display = "none";
