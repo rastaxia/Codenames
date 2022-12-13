@@ -14,15 +14,19 @@
   <body>
     <header class="head">
       <h1>Codenames the fun game (Master version)</h1>
-      <span> red score: <span id="redScore">0</span> </span>
-      /
-      <span> blue score <span id="blueScore">0</span></span>
+      <div class="scores">
+        <span> Red score: <span id="redScore">0</span> </span>
+        |
+        <span> Blue score <span id="blueScore">0</span></span>
+      </div>
       <button id="start">Start game</button>
-      <div id="buttons">
+      <div id="buttons" class="hidden">
         <span id="turnRed">Turn: Team Red</span>
         <span id="turnBlue">Turn: Team Blue</span>
-        <button id="end">End Turn</button>
-        <button id="spyMaster">Toggle spymaster grid</button>
+        <div>
+          <button id="end">End Turn</button>
+          <button id="spyMaster">Toggle spymaster grid</button>
+        </div>
       </div>
     </header>
     <main class="gameGrid">

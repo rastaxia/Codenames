@@ -44,14 +44,14 @@ spyMaster.addEventListener("click", function () {
           const random = Math.floor(Math.random() * indexList.length);
           number = indexList[random];
           indexList.splice(random, 1);
-          cards[number].style.backgroundColor = "red";
+          cards[number].style.backgroundColor = "#ff2f2f";
           cards[number].classList.add("red");
         }
         for (let i = 0; i < 8; i++) {
           const random = Math.floor(Math.random() * indexList.length);
           number = indexList[random];
           indexList.splice(random, 1);
-          cards[number].style.backgroundColor = "blue";
+          cards[number].style.backgroundColor = "#31acfd";
           cards[number].classList.add("blue");
         }
       } else {
@@ -59,34 +59,34 @@ spyMaster.addEventListener("click", function () {
           const random = Math.floor(Math.random() * indexList.length);
           number = indexList[random];
           indexList.splice(random, 1);
-          cards[number].style.backgroundColor = "blue";
+          cards[number].style.backgroundColor = "#31acfd";
           cards[number].classList.add("blue");
         }
         for (let i = 0; i < 8; i++) {
           const random = Math.floor(Math.random() * indexList.length);
           number = indexList[random];
           indexList.splice(random, 1);
-          cards[number].style.backgroundColor = "red";
+          cards[number].style.backgroundColor = "#ff2f2f";
           cards[number].classList.add("red");
         }
       }
       const random = Math.floor(Math.random() * indexList.length);
       number = indexList[random];
       indexList.splice(random, 1);
-      cards[number].style.backgroundColor = "black";
+      cards[number].style.backgroundColor = "#747474";
       cards[number].classList.add("black");
 
       for (let i = 0; i < 7; i++) {
         const random = Math.floor(Math.random() * indexList.length);
         number = indexList[random];
         indexList.splice(random, 1);
-        cards[number].classList.add("neutral");
         cards[number].style.backgroundColor = "#fec597";
+        cards[number].classList.add("neutral");
       }
       break;
 
     case 2:
-      spyMaster.innerHTML = "Show cards Cards";
+      spyMaster.innerHTML = "Show cards";
       for (let i = 0; i < 25; i++) {
         cards[i].style.backgroundColor = "#fec597";
       }
@@ -100,13 +100,13 @@ spyMaster.addEventListener("click", function () {
       const blackCards = document.querySelectorAll(".black");
       const neutralCards = document.querySelectorAll(".neutral");
       redCards.forEach((div) => {
-        div.style.backgroundColor = "red";
+        div.style.backgroundColor = "#ff2f2f";
       });
       blueCards.forEach((div) => {
-        div.style.backgroundColor = "blue";
+        div.style.backgroundColor = "#31acfd";
       });
       blackCards.forEach((div) => {
-        div.style.backgroundColor = "black";
+        div.style.backgroundColor = "#747474";
       });
       neutralCards.forEach((div) => {
         div.style.backgroundColor = "#fec597";
@@ -133,16 +133,16 @@ const blueScore = document.getElementById("blueScore");
 ///////////
 start.addEventListener("click", function () {
   start.style.display = "none";
-  gameButtons.style.display = "block";
+  gameButtons.setAttribute('class','visible');
   redTeam.style.display = "none";
   blueTeam.style.display = "none";
 
   if (turn == 1) {
     redTeam.style.display = "block";
-    redTeam.style.color = "red";
+    redTeam.style.color = "#ff2f2f";
   } else {
     blueTeam.style.display = "block";
-    blueTeam.style.color = "blue";
+    blueTeam.style.color = "#31acfd";
   }
 });
 
@@ -161,46 +161,46 @@ gameArea.forEach((div) => {
     if (initialTurn == 1) {
       if (turn == 1 && this.classList.contains("red")) {
         alert("Correct");
-        this.style.display = "none";
+        this.style.visibility = "none";
         scoreRed++;
         redScore.innerHTML = scoreRed;
       } else if (turn == 1 && this.classList.contains("blue")) {
         alert("Wrong team");
         scoreBlue++;
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         blueScore.innerHTML = scoreBlue;
         turn = 2;
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
-        blueTeam.style.color = "blue";
+        blueTeam.style.color = "#31acfd";
       } else if (turn == 1 && this.classList.contains("neutral")) {
         alert("wrong");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
-        blueTeam.style.color = "blue";
+        blueTeam.style.color = "#31acfd";
         turn = 2;
       } else if (turn == 2 && this.classList.contains("neutral")) {
         alert("Wrong");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         redTeam.style.display = "block";
         blueTeam.style.display = "none";
-        redTeam.style.color = "red";
+        redTeam.style.color = "#ff2f2f";
         turn = 1;
       } else if (turn == 2 && this.classList.contains("blue")) {
         alert("Correct");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         scoreBlue++;
         blueScore.innerHTML = scoreBlue;
       } else if (turn == 2 && this.classList.contains("red")) {
         alert("Wrong team");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         scoreRed++;
         redScore.innerHTML = scoreRed;
         turn = 1;
         redTeam.style.display = "block";
         blueTeam.style.display = "none";
-        redTeam.style.color = "red";
+        redTeam.style.color = "#ff2f2f";
       } else if (this.classList.contains("black") && turn == 1) {
         alert("Game over");
         alert("Blue wins");
@@ -226,48 +226,48 @@ gameArea.forEach((div) => {
     else if (initialTurn == 2) {
       if (turn == 1 && this.classList.contains("red")) {
         alert("correct");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         scoreRed++;
         redScore.innerHTML = scoreRed;
       } else if (turn == 1 && this.classList.contains("blue")) {
         alert("Wrong team");
         scoreBlue++;
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         blueScore.innerHTML = scoreBlue;
         turn = 2;
         console.log(turn);
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
-        blueTeam.style.color = "blue";
+        blueTeam.style.color = "#31acfd";
       } else if (turn == 2 && this.classList.contains("blue")) {
         alert("Correct");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         scoreBlue++;
         blueScore.innerHTML = scoreBlue;
       } else if (turn == 1 && this.classList.contains("neutral")) {
         alert("neutral color killed");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         redTeam.style.display = "none";
         blueTeam.style.display = "block";
-        blueTeam.style.color = "blue";
+        blueTeam.style.color = "#31acfd";
         turn = 2;
       } else if (turn == 2 && this.classList.contains("neutral")) {
         alert("neutral color killed");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         blueTeam.style.display = "none";
         redTeam.style.display = "block";
-        redTeam.style.color = "red";
+        redTeam.style.color = "#ff2f2f";
         turn = 1;
       } else if (turn == 2 && this.classList.contains("red")) {
         alert("Wrong team");
-        this.style.display = "none";
+        this.style.visibility = "hidden";
         scoreRed++;
         redScore.innerHTML = scoreRed;
         turn = 1;
         console.log(turn);
         redTeam.style.display = "block";
         blueTeam.style.display = "none";
-        redTeam.style.color = "red";
+        redTeam.style.color = "#ff2f2f";
       } else if (this.classList.contains("black") && turn == 1) {
         alert("Game over");
         alert("Blue wins");
@@ -299,12 +299,12 @@ end.addEventListener("click", function () {
     turn = 2;
     redTeam.style.display = "none";
     blueTeam.style.display = "block";
-    blueTeam.style.color = "blue";
+    blueTeam.style.color = "#31acfd";
   } else if (turn == 2) {
     turn = 1;
     redTeam.style.display = "block";
     blueTeam.style.display = "none";
-    redTeam.style.color = "red";
+    redTeam.style.color = "#ff2f2f";
   }
 });
 
@@ -324,7 +324,7 @@ end.addEventListener("click", function () {
 //         div.addEventListener("click", function () {
 //           if(this.id == "red"){
 //           alert("Correct");
-//             this.style.display = "none";
+//             this.style.visibility = "hidden";
 //             scoreRed++;
 //             console.log(scoreRed);
 //           }else if(this.id == "black"){

@@ -1,27 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap");
 body {
   margin: 0px 10px 0px 10px;
   padding: 0;
-  background-image: url(../pictures/wood.png);
-  height: 100vh;
+  background-image: url(../pictures/tabletop.jpg);
+  color: black;
+  font-family: "Unbounded", sans-serif;
+}
+
+header {
+  margin-top: 10px;
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px;
+  min-height: 200px;
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+h1 {
+  margin: 0;
 }
 
 .head {
-  color: #ffffff;
   text-align: center;
   padding: 10px;
 }
 
-
-#buttons {
+.hidden {
   display: none;
 }
 
-#red,
-#blue {
-  font-weight: bold;
+.visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .gameGrid {
+  padding-top: 20px;
   height: 80%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -39,7 +55,33 @@ body {
   background: #fec597;
   flex-direction: column;
   text-align: center;
-  color: snow;
+}
+
+#turnBlue,
+#turnRed {
+  font-weight: bold;
+}
+
+span {
+  font-size: 20px;
+  padding: 5px;
+}
+
+button {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  font-weight: bold;
 }
 
 .reverse {
@@ -62,6 +104,7 @@ body {
   font-size: 30px;
 }
 
+/* responsiveness :) */
 @media screen and (max-width: 900px) {
   .gameGrid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
