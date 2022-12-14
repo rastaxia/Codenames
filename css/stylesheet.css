@@ -149,7 +149,7 @@ footer {
   padding-top: 20px;
   height: 80%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   column-gap: 10px;
   row-gap: 10px;
 }
@@ -190,11 +190,4 @@ footer {
   padding: 10px;
   margin-left: 10px;
   font-size: 30px;
-}
-
-/* responsiveness :) */
-@media screen and (max-width: 900px) {
-  .gameGrid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
 }
