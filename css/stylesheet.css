@@ -15,7 +15,6 @@ header {
   border-radius: 15px;
   text-align: center;
   padding: 10px;
-  min-height: 200px;
   background-color: rgba(128, 128, 128, 0.7);
 }
 
@@ -28,16 +27,15 @@ button {
 }
 
 span {
-  font-size: 20px;
+  font-size: 18px;
   padding: 5px;
 }
 
 button {
-  padding: 10px;
+  padding: 5px;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 10px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -45,7 +43,14 @@ button:hover {
   background-color: rgb(172, 172, 172);
 }
 
+footer {
+  margin-top: 10px;
+  bottom: 0;
+  color: snow;
+}
+
 .head {
+  min-height: 170px;
   text-align: center;
   padding: 10px;
 }
@@ -61,8 +66,8 @@ button:hover {
 }
 
 .gameInfo {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 0px;
   background-color: black;
