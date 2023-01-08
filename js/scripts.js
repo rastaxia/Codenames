@@ -44,7 +44,6 @@ info.addEventListener("click", function () {
 
 ///////
 //
-//spy master button
 // has the random card color generator
 //
 ///////
